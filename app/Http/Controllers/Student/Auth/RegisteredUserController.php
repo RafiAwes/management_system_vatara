@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Student\Auth;
 
-use App\Models\student;
 use Carbon\Carbon;
+use App\Models\student;
+use App\Models\batch;
 use Faker\Provider\Image;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -27,8 +28,11 @@ class RegisteredUserController extends Controller
     public function create(): View
     {
         $admin_name = Auth::guard('admin')->user();
+        $batches = batch::where('status','active')
+        ->orderBy('id','asc')
+        ->get();
 
-        return view('Student.auth.register',compact('admin_name'));
+        return view('Student.auth.register',compact('admin_name','batches'));
     }
 
     /**

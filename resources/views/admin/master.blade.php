@@ -80,25 +80,24 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class=" fa fa-book purple_color"></i> <span>Batch</span></a>
+                                <ul class="collapse list-unstyled" id="element">
+                                    <li><a href="{{route('batch.createPage')}}"> <span>Create Batch</span></a></li>
+                                    <li><a href="{{route('batch.batchlist')}}"> <span>Batch List</span></a></li>
+                                    <li><a href="icons.html"> <span>Update Batch</span></a></li>
+                                </ul>
+                            </li>
                             <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>
                             <li>
                                 <a href="#list" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>People List</span></a>
                                 <ul class="collapse list-unstyled" id="list">
-                                    <li><a href="#"> <span>Candidate List</span></a></li>
-                                    <li><a href="media_gallery.html"> <span>Voter List</span></a></li>
-
+                                    <li><a href="{{route('student.list')}}"> <span>Student List</span></a></li>
+                                    <li><a href="{{route('trainer.list')}}"> <span>Trainer List</span></a></li>
                                 </ul>
                             </li>
                             <li><a href="widgets.html"><i class="fa fa-tasks orange_color"></i> <span>Widgets</span></a></li>
-                            <li>
-                                <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
-                                <ul class="collapse list-unstyled" id="element">
-                                    <li><a href="general_elements.html"> <span>General Elements</span></a></li>
-                                    <li><a href="media_gallery.html"> <span>Media Gallery</span></a></li>
-                                    <li><a href="icons.html"> <span>Icons</span></a></li>
-                                    <li><a href="invoice.html"> <span>Invoice</span></a></li>
-                                </ul>
-                            </li>
+
                             <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>
                             <li>
                                 <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Apps</span></a>

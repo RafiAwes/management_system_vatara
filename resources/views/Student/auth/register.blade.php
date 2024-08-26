@@ -79,9 +79,9 @@
                                                 <select name="batch_id" id="batch_id" class="form-control">
                                                     <option value="">Select One</option>
                                                     <option value="demo_batch">Demo Batch</option>
-                                                    {{-- @foreach ($batches as $batch )
-                                                        <option value="{{ $batch->id }}">{{ $batch->batch_name }}</option>
-                                                    @endforeach --}}
+                                                    @foreach ($batches as $batch )
+                                                        <option value="{{ $batch->id }}">{{ $batch->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
