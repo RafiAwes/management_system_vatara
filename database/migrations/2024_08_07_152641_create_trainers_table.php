@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('trainers', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->string("trainer_name");
             $table->string("image");
             $table->string("address")->nullable();
             $table->date("date_of_birth");
@@ -29,6 +29,7 @@ return new class extends Migration
             // $table->integer('attended_class');
             $table->integer('honorarium');
             $table->string('status');
+            $table->json('times')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('enc_pass');
             $table->string('password');

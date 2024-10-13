@@ -16,8 +16,8 @@
                                     <div class="col-lg-12">
                                         <div class="row pt-3">
                                             <div class="col-lg-4">
-                                                <label for="name">Name</label>
-                                                <input type="text" name="name" class="form-control rounded" id="name" placeholder="Enter your name">
+                                                <label for="trainer_name">Name</label>
+                                                <input type="text" name="trainer_name" class="form-control rounded" id="trainer_name" placeholder="Enter Trainer Name">
                                             </div>
                                             <div class="col-lg-4">
                                                 <label for="contact">Phone No:</label>

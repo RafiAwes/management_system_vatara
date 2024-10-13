@@ -39,7 +39,7 @@ Route::middleware('guest:student')->prefix('student')->name('student.')->group(f
 Route::middleware('auth:student')->prefix('student')->name('student.')->group(function () {
 
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('student.dashboard');
     })->middleware(['verified'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integer('total_classes');
             $table->date('starting_date');
             $table->integer('number_of_students');
-            $table->time('class_time');
-            $table->string('days');
+            $table->string('slot_id');
+            $table->string('trainer_id');
             $table->string('status');
             $table->integer('classes_done');
             $table->timestamps();

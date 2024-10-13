@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->string('admin_name');
-            $table->string('email')->unique();
-            $table->string('type')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('student_id');
+            $table->string('batch_id');
+            $table->string('status')->default('Absent');
+            $table->date('submission_date');
+            $table->string('month_name');
+            $table->integer('year');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('attendances');
     }
 };

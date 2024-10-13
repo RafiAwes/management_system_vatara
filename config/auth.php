@@ -2,7 +2,7 @@
 
 use App\Models\admin;
 use App\Models\trainer;
-use App\Models\students;
+use App\Models\student;
 
 return [
 
@@ -83,14 +83,17 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => admin::class,
+            'table' => 'admins',
         ],
         'trainers' => [
             'driver' => 'eloquent',
             'model' => trainer::class,
+            'table' => 'trainers',
         ],
         'students' => [
             'driver' => 'eloquent',
-            'model' => students::class,
+            'model' => student::class,
+            'table' => 'students',
         ],
 
         // 'users' => [

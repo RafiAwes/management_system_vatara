@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Student\Auth;
 
 use Carbon\Carbon;
-use App\Models\student;
+use App\Models\slot;
 use App\Models\batch;
+use App\Models\student;
 use Faker\Provider\Image;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 //use Illuminate\Support\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +21,7 @@ use Intervention\Image\ImageManager;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Database\Eloquent\Collection;
 use Intervention\Image\Drivers\Imagick\Driver;
 
 class RegisteredUserController extends Controller
@@ -27,10 +31,12 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
+
         $admin_name = Auth::guard('admin')->user();
         $batches = batch::where('status','active')
         ->orderBy('id','asc')
         ->get();
+
 
         return view('Student.auth.register',compact('admin_name','batches'));
     }
@@ -67,12 +73,13 @@ class RegisteredUserController extends Controller
             $password .= $characters[rand(0,$char_length-1)];
             }
 
+            $samplePass = 'hello';
+
             //fees calculating
             $totalFees = $request->payableFees - $request->admissionFees;
 
-
             $student = student::create([
-                "name" => $request->name,
+                "student_name" => $request->student_name,
                 "image" => 'student_image/' . $image_name,
                 "address" => $request->address,
                 "date_of_birth" => $request->date_of_birth,

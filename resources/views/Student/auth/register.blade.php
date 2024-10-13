@@ -16,8 +16,8 @@
                                     <div class="col-lg-12">
                                         <div class="row pt-3">
                                             <div class="col-lg-4">
-                                                <label for="name">Name</label>
-                                                <input type="text" name="name" class="form-control rounded" id="name" placeholder="Enter your name">
+                                                <label for="student_name">Student Name</label>
+                                                <input type="text" name="student_name" class="form-control rounded" id="student_name" placeholder="Enter your name">
                                             </div>
                                             {{-- <div class="col-lg-4">
                                                     <label for="father_name">Father's Name</label>

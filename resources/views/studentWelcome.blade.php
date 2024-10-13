@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Welcome Student</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -27,29 +27,29 @@
                         @if (Route::has('login'))
 
                             <nav class="-mx-3 flex flex-1 justify-end">
-                                @auth('admin')
+                                @auth('student')
                                         <a
-                                            href="{{ url('admin/dashboard') }}"
+                                            href="{{ url('student/dashboard') }}"
                                             class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                         >
-                                            Admin Dashboard
+                                            Student Dashboard
                                         </a>
                                     @else
                                         <a
-                                            href="{{ route('admin.login') }}"
+                                            href="{{ route('student.login') }}"
                                             class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                         >
-                                            Admin Log in
+                                            Student Login
                                         </a>
 
-                                    @if (Route::has('admin.register'))
+                                    {{-- @if (Route::has('student.register'))
                                         <a
-                                            href="{{ route('admin.register') }}"
+                                            href="{{ route('student.register') }}"
                                             class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                         >
                                            Admin Register
                                         </a>
-                                    @endif
+                                    @endif --}}
                                 @endauth
 
                             </nav>

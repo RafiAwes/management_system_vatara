@@ -47,9 +47,9 @@
                         <div class="sidebar_user_info">
                             <div class="icon_setting"></div>
                             <div class="user_profle_side">
-                                {{-- <div class="user_img"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/layout_img/user_img.jpg" alt="#" /></div> --}}
+                                <div class="user_img"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/layout_img/user_img.jpg" alt="#" /></div>
                                 <div class="user_info">
-                                    <h6>{{Auth::guard('admin')->check() ? Auth::guard('admin')->user()->admin_name : $admin_name->admin_name}}</h6>
+                                    <h6>{{Auth::guard('student')->check() ? Auth::guard('student')->user()->student_name : $student_name->student_name}}</h6>
                                     <p><span class="online_animation"></span> Online</p>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                     </div>
                     <!-- end topbar -->
                     <!--content-->
-                    @yield('admin-content')
+                    @yield('student-content')
                     <!-- end content -->
                 </div>
             </div>

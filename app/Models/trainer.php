@@ -16,8 +16,10 @@ class trainer extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'trainers';
+
     protected $fillable = [
-        'name',
+        'trainer_name',
         'email',
         'address',
         'password',
@@ -34,8 +36,12 @@ class trainer extends Authenticatable
         'position',
         'status',
         'type',
+        'times'
     ];
 
+    protected $casts = [
+        'times' => 'array',
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *

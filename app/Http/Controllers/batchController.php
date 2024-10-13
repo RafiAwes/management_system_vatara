@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\batch;
 use Carbon\Carbon;
+use App\Models\slot;
+use App\Models\batch;
+use App\Models\student;
+use App\Models\trainer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class batchController extends Controller
 {
     public function createBatchPage(){
-        return view('batch.createBatch');
+        $slots = slot::all();
+        $trainers = trainer::all();
+        return view('batch.createBatch',compact('slots','trainers'));
     }
 
     public function create(Request $request){
@@ -19,8 +25,9 @@ class batchController extends Controller
             'total_classes' => 'required',
             'starting_date' => 'required',
             'numberOfStudents' => 'required',
-            'class_time' => 'required',
-            'days' => 'required',
+            'trainer_id' => 'required',
+            // 'time' => 'required',
+            // 'days' => 'required',
         ], [
             'batch_name.required' => 'Name field is required.',
             'total_classes.required' => 'Total classes are required.',
@@ -30,21 +37,21 @@ class batchController extends Controller
             // 'days.required' => 'Class time is mandetory.',
         ]);
 
-        $multichecks = $request->input('days');
-        $days = implode(',', $multichecks);
-        $batch = batch::where('class_time',$request->class_time)->exists();
-        $d = batch::where('days',$days)->exists();
-        if($d && $batch){
+
+        $batch = batch::where('slot_id',$request->slot_id)->exists();
+        $trainer = trainer::where('trainer_id',$request->trainer_id)->exists();
+
+        if($batch && $trainer){
             // Toastr::error('Ooops', 'Time and days already exists', ["positionClass" => "toast-top-center"]);
-            return redirect()->route('batch.createBatch');
+            return redirect()->route('batch.create');
         }else{
             batch::insert([
                 "name" => $request->batch_name,
                 "total_classes" => $request->total_classes,
                 "starting_date" => $request->starting_date,
                 "number_of_students" => $request->numberOfStudents,
-                "class_time" => $request->class_time,
-                "days" => $days,
+                "slot_id" => $request->slot_id,
+                "trainer_id" => $request->trainer_id,
                 "status" => 'active',
                 "classes_done" => 0,
                 "created_at"=> carbon::now(),
@@ -63,6 +70,19 @@ class batchController extends Controller
 
         return view('batch.batchList',['batches'=>$batches]);
     }
+
+    public function batchDetails($id){
+        $students = student::where('batch_id',$id)
+                    ->get();
+        $batch = DB::table('batches')
+        ->join('slots', 'batches.slot_id', '=', 'slots.id')
+        ->select('batches.*', 'slots.days', 'slots.starting_time')
+        ->first();
+
+        return view('batch.batchDetails',['students'=>$students, 'batch'=>$batch]);
+    }
+
+
 
 
 }

@@ -41,15 +41,15 @@
                     <div class="sidebar_blog_1">
                         <div class="sidebar-header">
                             <div class="logo_section">
-                                <a href="index.html"><img class="logo_icon img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/logo/logo_icon.png" alt="#" /></a>
+                                {{-- <a href="index.html"><img class="logo_icon img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/logo/logo_icon.png" alt="#" /></a> --}}
                             </div>
                         </div>
                         <div class="sidebar_user_info">
                             <div class="icon_setting"></div>
                             <div class="user_profle_side">
-                                {{-- <div class="user_img"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/layout_img/user_img.jpg" alt="#" /></div> --}}
+                                <div class="user_img"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/layout_img/user_img.jpg" alt="#" /></div>
                                 <div class="user_info">
-                                    <h6>{{Auth::guard('admin')->check() ? Auth::guard('admin')->user()->admin_name : $admin_name->admin_name}}</h6>
+                                    <h6>{{Auth::guard('trainer')->check() ? Auth::guard('trainer')->user()->trainer_name : $trainer_name->trainer_name}}</h6>
                                     <p><span class="online_animation"></span> Online</p>
                                 </div>
                             </div>
@@ -61,11 +61,11 @@
                             <li class="active">
                                 <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                                 <ul class="collapse list-unstyled" id="dashboard">
-                                    <li><a href="dashboard.html">> <span>Default Dashboard</span></a></li>
+                                    <li><a href="{{route('trainer.dashboard')}}">> <span>Default Dashboard</span></a></li>
                                     {{-- <li><a href="dashboard_2.html">> <span>Dashboard style 2</span></a></li> --}}
                                 </ul>
                             </li>
-                            <li class="active">
+                            {{-- <li class="active">
                                 <a href="#registration" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-wpforms yellow_color"></i> <span>Registration</span></a>
                                 <ul class="collapse list-unstyled" id="registration">
                                     <li>
@@ -79,17 +79,17 @@
                                         @endif
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li>
-                                <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class=" fa fa-book purple_color"></i> <span>Batch</span></a>
-                                <ul class="collapse list-unstyled" id="element">
+                                <a href="{{route('trainers.batches')}}" aria-expanded="false"><i class=" fa fa-book purple_color"></i> <span>Batches</span></a>
+                                {{-- <ul class="collapse list-unstyled" id="element">
                                     <li><a href="{{route('slot.create.page')}}"> <span>Create Slot</span></a></li>
                                     <li><a href="{{route('batch.createPage')}}"> <span>Create Batch</span></a></li>
                                     <li><a href="{{route('batch.batchlist')}}"> <span>Batch List</span></a></li>
                                     <li><a href="icons.html"> <span>Update Batch</span></a></li>
-                                </ul>
+                                </ul> --}}
                             </li>
-                            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>
+                            <li><a href="{{route('attendance.batchlist')}}"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>
                             <li>
                                 <a href="#list" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>People List</span></a>
                                 <ul class="collapse list-unstyled" id="list">
@@ -145,14 +145,14 @@
                                         </ul>
                                         <ul class="user_profile_dd">
                                             <li>
-                                                <a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">{{Auth::guard('admin')->check() ? Auth::guard('admin')->user()->name : $admin_name->name}}</span></a>
+                                                <a class="dropdown-toggle" data-toggle="dropdown"><span class="name_user">{{Auth::guard('trainer')->check() ? Auth::guard('trainer')->user()->name : $trainer_name->trainer_name}}</span></a>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="profile.html">My Profile</a>
                                                     <a class="dropdown-item" href="settings.html">Settings</a>
                                                     <a class="dropdown-item" href="help.html">Help</a>
-                                                    <form method="POST" action="{{ route('admin.logout') }}">
+                                                    <form method="POST" action="{{ route('trainer.logout') }}">
                                                         @csrf
-                                                        <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); this.closest('form').submit()"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                                        <a class="dropdown-item" href="{{ route('trainer.logout') }}" onclick="event.preventDefault(); this.closest('form').submit()"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
                                                     </form>
                                                 </div>
                                             </li>
@@ -164,7 +164,7 @@
                     </div>
                     <!-- end topbar -->
                     <!--content-->
-                    @yield('admin-content')
+                    @yield('trainer-content')
                     <!-- end content -->
                 </div>
             </div>

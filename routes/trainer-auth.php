@@ -39,7 +39,7 @@ Route::middleware('guest:trainer')->prefix('trainer')->name('trainer.')->group(f
 Route::middleware('auth:trainer')->prefix('trainer')->name('trainer.')->group(function () {
 
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('Trainer.dashboard');
     })->middleware(['verified'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

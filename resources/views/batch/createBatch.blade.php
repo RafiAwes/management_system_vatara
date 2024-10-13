@@ -33,45 +33,27 @@
                                             <input type="int" name="numberOfStudents" class="form-control rounded" id="numberOfStudents" placeholder="Enter the number of students">
                                         </div>
                                         <div class="col-lg-4">
-                                            <label for="time">starting time</label>
-                                            <input type="time" class="form-control rounded" name="class_time" id="class_time" placeholder="Enter the training time: ">
+                                            <label for="slot_id">Slot</label>
+                                            <select class="form-control" name="slot_id" id="slot_id">
+                                                <option value="">Insert Slot</option>
+                                                @foreach ($slots as $slot)
+                                                    <option value="{{$slot->id}}">{{$slot->slot_name}}</option>
+                                                @endforeach
+                                            </select>
+                                            {{-- <input type="time" class="form-control rounded" name="time" id="time" placeholder="Enter the training time: "> --}}
                                         </div>
                                         <div class="col-lg-4">
-                                            <label for="Days">Days of training</label>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" value="Saturday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Saturday</label>
-                                            </div>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" value="Sunday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Sunday</label>
-                                            </div>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" value="Monday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Monday</label>
-                                            </div>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" value="Tuesday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Tuesday</label>
-                                            </div>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" value="Wednesday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Wednesday</label>
-                                            </div>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" value="Thursday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Thursday</label>
-                                            </div>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" value="Friday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault">Friday</label>
-                                            </div>
+                                            <label for="trainer_id">Trainer</label>
+                                            <select name="trainer_id" id="trainer_id" class="form-control">
+                                                <option value="">Select Trainer</option>
+                                                @foreach ($trainers as $trainer)
+                                                <option value="{{$trainer->id}}">{{$trainer->trainer_name}}</option>
+                                                @endforeach
 
+                                              </select>
                                         </div>
 
-
                                     </div>
-
                                 </div>
 
                             </div>
@@ -79,7 +61,6 @@
                                 <div class="col-lg-12 text-center">
                                     <input type="submit" value="Create" class="btn btn-warning rounded">
                                 </div>
-
                             </div>
                         </div>
                     </form>
@@ -88,4 +69,35 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        /*------------------------------------------
+        --------------------------------------------
+        Country Dropdown Change Event
+        --------------------------------------------
+        --------------------------------------------*/
+        $('#time').on('change', function () {
+            var time = this.value;
+            $("#trainer-dropdown").html('');
+            $.ajax({
+                url: "{{url('/get/available/trainers')}}",
+                type: "POST",
+                data: {
+                    time: time,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function (result) {
+                    $('#trainer-dropdown').html('<option value="">-- Select Trainer --</option>');
+                    $.each(result.trainers, function (key, value) {
+                        $("#trainer-dropdown").append('<option value="' + value
+                            .id + '">' + value.name + '</option>');
+                    });
+
+                }
+            });
+        });
+    });
+</script>
 @endsection

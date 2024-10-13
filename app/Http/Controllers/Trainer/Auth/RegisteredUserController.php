@@ -51,6 +51,7 @@ class RegisteredUserController extends Controller
 
 
              //password generator
+            //  $samplePass = 'hello';
              $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
              $char_length = strlen($characters);
              $password = '';
@@ -59,7 +60,7 @@ class RegisteredUserController extends Controller
              }
 
             $trainer = trainer::create([
-                "name" => $request->name,
+                "trainer_name" => $request->trainer_name,
                 "image" => 'trainer_image/' . $image_name,
                 "address" => $request->address,
                 "date_of_birth" => $request->date_of_birth,
