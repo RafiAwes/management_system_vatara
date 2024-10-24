@@ -1,7 +1,9 @@
 <?php
 
+use auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\studentController;
 use App\Http\Controllers\Student\Auth\PasswordController;
 use App\Http\Controllers\Student\Auth\NewPasswordController;
 use App\Http\Controllers\Student\Auth\VerifyEmailController;
@@ -38,9 +40,10 @@ Route::middleware('guest:student')->prefix('student')->name('student.')->group(f
 
 Route::middleware('auth:student')->prefix('student')->name('student.')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('Student.dashboard');
-    })->middleware(['verified'])->name('dashboard');
+    Route::get('/dashboard',[studentController::class,'dashboard'])->middleware(['verified'])->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     // $studentId = Auth::guard('student')->id();
+    //     })->middleware(['verified'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -41,11 +41,11 @@
                     </table>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-12 text-center">
                     <a class="btn btn-warning float-end" href="{{ url('/students/list/download') }}">Export User Data</a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

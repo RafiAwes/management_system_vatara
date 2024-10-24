@@ -49,8 +49,7 @@
                                                 @foreach ($trainers as $trainer)
                                                 <option value="{{$trainer->id}}">{{$trainer->trainer_name}}</option>
                                                 @endforeach
-
-                                              </select>
+                                            </select>
                                         </div>
 
                                     </div>

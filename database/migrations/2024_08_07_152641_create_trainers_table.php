@@ -17,18 +17,18 @@ return new class extends Migration
             $table->string("image");
             $table->string("address")->nullable();
             $table->date("date_of_birth");
-            $table->float("height");
-            $table->float("weight");
+            $table->float("height")->nullable();
+            $table->float("weight")->nullable();
             $table->string("contact_number");
             $table->string("email");
-            $table->date("date_of_joining");
-            $table->enum('gender', ['male', 'female','other']);
+            $table->date("date_of_joining")->nullable();
+            $table->enum('gender', ['male', 'female','other'])->nullable();
             $table->string('batch_id')->nullable();
-            $table->string('trainer_id');
-            $table->string('position');
-            // $table->integer('attended_class');
-            $table->integer('honorarium');
-            $table->string('status');
+            $table->string('trainer_id')->nullable();
+            $table->string('position')->nullable();
+          
+            $table->integer('honorarium')->nullable();
+            $table->string('status')->nullable();
             $table->json('times')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('enc_pass');

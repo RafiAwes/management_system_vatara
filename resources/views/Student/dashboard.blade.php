@@ -19,7 +19,7 @@
                 </div>
                 <div class="counter_no">
                    <div>
-                      <p class="total_no">2500</p>
+                      {{-- <p class="total_no">{{$user->id}}</p> --}}
                       <p class="head_couter">Welcome</p>
                    </div>
                 </div>

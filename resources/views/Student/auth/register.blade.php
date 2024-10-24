@@ -19,14 +19,6 @@
                                                 <label for="student_name">Student Name</label>
                                                 <input type="text" name="student_name" class="form-control rounded" id="student_name" placeholder="Enter your name">
                                             </div>
-                                            {{-- <div class="col-lg-4">
-                                                    <label for="father_name">Father's Name</label>
-                                                    <input type="text" name="father_name" class="form-control rounded" id="father_name" placeholder="Enter your father's name">
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <label for="mother_name">Mother's Name</label>
-                                                <input type="text" name="mother_name" class="form-control rounded" id="mother_name" placeholder="Enter your mother's name">
-                                            </div> --}}
                                             <div class="col-lg-4">
                                                 <label for="contact_number">Phone No:</label>
                                                 <input type="text" name="contact_number" class="form-control rounded" id="contact_number" placeholder="Enter your Phone number" required>
@@ -41,10 +33,10 @@
                                                 <label for="present_address">Present Address</label>
                                                 <input type="text" name="address" class="form-control rounded" id="present_address" placeholder="Enter your present address">
                                             </div>
-                                            <div class="col-lg-4">
+                                            {{-- <div class="col-lg-4">
                                                 <label for="nid_or_birth_cert_no">NID/Birth Cert. no.:</label>
                                                 <input type="text" class="form-control rounded" name="date_of_birth" id="nid_or_birth_cert_no" placeholder="Enter your NID or birth certificate number">
-                                            </div>
+                                            </div> --}}
                                             <div class="col-lg-4">
                                                 <label for="date_of_birth">Date of Birth</label>
                                                 <input type="date" name="date_of_birth" class="form-control rounded" id="date_of_birth" required>
@@ -63,17 +55,16 @@
 
                                         </div>
                                         <div class="row pt-3">
-
-                                            <div class="col-lg-6">
+                                            {{-- <div class="col-lg-6">
                                                 <label for="gender">Gender</label>
-                                                {{-- <input type="text" class="form-control rounded" id="gender" placeholder="Enter your mobile number"> --}}
+                                                <input type="text" class="form-control rounded" id="gender" placeholder="Enter your mobile number">
                                                 <select class="form-control" name="gender" id="gender" required>
                                                     <option value="">Select One</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                     <option value="custom">Custom</option>
                                                 </select>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-lg-6">
                                                 <label for="batch">Batch:</label>
                                                 <select name="batch_id" id="batch_id" class="form-control">

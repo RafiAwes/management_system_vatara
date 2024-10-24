@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- site metas -->
-        <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+        <title>Trainer Panel</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -47,7 +47,7 @@
                         <div class="sidebar_user_info">
                             <div class="icon_setting"></div>
                             <div class="user_profle_side">
-                                <div class="user_img"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/layout_img/user_img.jpg" alt="#" /></div>
+                                {{-- <div class="user_img"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/layout_img/user_img.jpg" alt="#" /></div> --}}
                                 <div class="user_info">
                                     <h6>{{Auth::guard('trainer')->check() ? Auth::guard('trainer')->user()->trainer_name : $trainer_name->trainer_name}}</h6>
                                     <p><span class="online_animation"></span> Online</p>
@@ -65,38 +65,20 @@
                                     {{-- <li><a href="dashboard_2.html">> <span>Dashboard style 2</span></a></li> --}}
                                 </ul>
                             </li>
-                            {{-- <li class="active">
-                                <a href="#registration" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-wpforms yellow_color"></i> <span>Registration</span></a>
-                                <ul class="collapse list-unstyled" id="registration">
-                                    <li>
-                                        @if (Route::has('student.register'))
-                                            <a href="{{ route('student.register') }}">> <span>Student Registration</span></a>
-                                        @endif
-                                    </li>
-                                    <li>
-                                        @if (Route::has('register'))
-                                            <a href="{{ route('trainer.register') }}">> <span>Trainer Registration</span></a>
-                                        @endif
-                                    </li>
-                                </ul>
-                            </li> --}}
+
                             <li>
                                 <a href="{{route('trainers.batches')}}" aria-expanded="false"><i class=" fa fa-book purple_color"></i> <span>Batches</span></a>
-                                {{-- <ul class="collapse list-unstyled" id="element">
-                                    <li><a href="{{route('slot.create.page')}}"> <span>Create Slot</span></a></li>
-                                    <li><a href="{{route('batch.createPage')}}"> <span>Create Batch</span></a></li>
-                                    <li><a href="{{route('batch.batchlist')}}"> <span>Batch List</span></a></li>
-                                    <li><a href="icons.html"> <span>Update Batch</span></a></li>
-                                </ul> --}}
+
                             </li>
-                            <li><a href="{{route('attendance.batchlist')}}"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>
-                            <li>
+                            <li><a href="{{route('attendance.batchlist')}}"><i class="fa fa-table purple_color2"></i> <span>Attendance</span></a></li>
+                            <li><a href="{{route('event.trainer.list')}}"><i class="fa fa-table purple_color2"></i> <span>Events</span></a></li>
+                            {{-- <li>
                                 <a href="#list" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>People List</span></a>
                                 <ul class="collapse list-unstyled" id="list">
                                     <li><a href="{{route('student.list')}}"> <span>Student List</span></a></li>
                                     <li><a href="{{route('trainer.list')}}"> <span>Trainer List</span></a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             {{-- <li><a href="widgets.html"><i class="fa fa-tasks orange_color"></i> <span>Widgets</span></a></li>
 
                             <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li> --}}
@@ -134,7 +116,7 @@
                             <div class="full">
                                 <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                                 <div class="logo_section">
-                                    <a href="index.html"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/logo/logo.png" alt="#" /></a>
+                                    <a href="{{route('trainer.dashboard')}}"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/logo/logo.jpeg" alt="#" /> <h6 class="text-white">Vatara Taekwondo Association</h6></a>
                                 </div>
                                 <div class="right_topbar">
                                     <div class="icon_info">

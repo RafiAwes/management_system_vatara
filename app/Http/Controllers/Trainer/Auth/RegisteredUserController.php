@@ -69,7 +69,7 @@ class RegisteredUserController extends Controller
                 "contact_number" => $request->contact_number,
                 "email" => $request->email,
                 "date_of_joining" => Carbon::now(),
-                "gender" => $request->gender,
+                "gender" => 'female',
                 "trainer_id" => $uniqueId,
                 //"batch_id" => $request->batch_id,
                 // "attended_class" => 0,

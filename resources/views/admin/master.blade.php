@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- site metas -->
-        <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+        <title>Admin</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -28,9 +28,10 @@
         <link rel="stylesheet" href="{{ url('/') }}/frontend_admin_assets/css/perfect-scrollbar.css" />
         <!-- custom css -->
         <link rel="stylesheet" href="{{ url('/') }}/frontend_admin_assets/css/custom.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
     <body class="dashboard dashboard_1">
@@ -50,7 +51,7 @@
                                 {{-- <div class="user_img"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/layout_img/user_img.jpg" alt="#" /></div> --}}
                                 <div class="user_info">
                                     <h6>{{Auth::guard('admin')->check() ? Auth::guard('admin')->user()->admin_name : $admin_name->admin_name}}</h6>
-                                    <p><span class="online_animation"></span> Online</p>
+                                    {{-- <p><span class="online_animation"></span> Online</p> --}}
                                 </div>
                             </div>
                         </div>
@@ -61,7 +62,7 @@
                             <li class="active">
                                 <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                                 <ul class="collapse list-unstyled" id="dashboard">
-                                    <li><a href="dashboard.html">> <span>Default Dashboard</span></a></li>
+                                    <li><a href="{{route('admin.dashboard')}}">> <span>Default Dashboard</span></a></li>
                                     {{-- <li><a href="dashboard_2.html">> <span>Dashboard style 2</span></a></li> --}}
                                 </ul>
                             </li>
@@ -89,7 +90,16 @@
                                     <li><a href="icons.html"> <span>Update Batch</span></a></li>
                                 </ul>
                             </li>
-                            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>
+                            <li>
+                                <a href="#event" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class=" fa fa-cube purple_color"></i> <span>Event</span></a>
+                                <ul class="collapse list-unstyled" id="event">
+                                    <li><a href="{{route('event.form')}}"> <span>Create Event</span></a></li>
+                                    <li><a href="{{route('event.admin.list')}}"> <span>Events</span></a></li>
+                                    {{-- <li><a href="#"> <span>Batch List</span></a></li>
+                                    <li><a href="icons.html"> <span>Update Batch</span></a></li> --}}
+                                </ul>
+                            </li>
+                            {{-- <li><a href="#"><i class="fa fa-table purple_color2"></i> <span>Event</span></a></li> --}}
                             <li>
                                 <a href="#list" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-table purple_color2"></i> <span>People List</span></a>
                                 <ul class="collapse list-unstyled" id="list">
@@ -97,9 +107,11 @@
                                     <li><a href="{{route('trainer.list')}}"> <span>Trainer List</span></a></li>
                                 </ul>
                             </li>
-                            {{-- <li><a href="widgets.html"><i class="fa fa-tasks orange_color"></i> <span>Widgets</span></a></li>
+                            <li><a href="{{route('notice.create.page')}}"><i class="fa fa-send"></i> <span>Send Notice</span></a></li>
+                            <li><a href="{{route('feedback.view')}}"><i class="fa fa-send"></i> <span>Feedbacks</span></a></li>
+                            <li><a href="{{route('view.report')}}"><i class="fa fa-area-chart"></i> <span>Report</span></a></li>
 
-                            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li> --}}
+                            {{-- <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li> --}}
                             {{-- <li>
                                 <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Apps</span></a>
                                 <ul class="collapse list-unstyled" id="apps">
@@ -134,7 +146,7 @@
                             <div class="full">
                                 <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                                 <div class="logo_section">
-                                    <a href="index.html"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/logo/logo.png" alt="#" /></a>
+                                    <a href="index.html"><img class="img-responsive" src="{{ url('/') }}/frontend_admin_assets/images/logo/logo.jpeg" alt="#" /> <h6 class="text-white">Vatara Taekwondo Association</h6></a>
                                 </div>
                                 <div class="right_topbar">
                                     <div class="icon_info">
@@ -169,6 +181,16 @@
                 </div>
             </div>
         </div>
+        <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+
+            $('.ckeditor').ckeditor();
+
+            });
+
+        </script>
         <!-- jQuery -->
         <script src="{{ url('/') }}/frontend_admin_assets/js/jquery.min.js"></script>
         <script src="{{ url('/') }}/frontend_admin_assets/js/popper.min.js"></script>

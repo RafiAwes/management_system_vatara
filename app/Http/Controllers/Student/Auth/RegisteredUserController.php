@@ -5,14 +5,15 @@ namespace App\Http\Controllers\Student\Auth;
 use Carbon\Carbon;
 use App\Models\slot;
 use App\Models\batch;
+use App\Models\report;
 use App\Models\student;
 use Faker\Provider\Image;
-use Illuminate\View\View;
 //use Illuminate\Support\Carbon;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
-use Illuminate\Support\Facades\DB;
 // use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
@@ -73,7 +74,12 @@ class RegisteredUserController extends Controller
             $password .= $characters[rand(0,$char_length-1)];
             }
 
-            $samplePass = 'hello';
+             // Get the current month and year using Carbon
+            $currentMonth = Carbon::now()->format('F');  // Example: October
+            $currentYear = Carbon::now()->year;
+
+            $monthandyear = report::where('month',$currentMonth)->where('year',$currentYear)->first();
+            // $samplePass = 'hello';
 
             //fees calculating
             $totalFees = $request->payableFees - $request->admissionFees;
@@ -88,7 +94,7 @@ class RegisteredUserController extends Controller
                 "contact_number" => $request->contact_number,
                 "email" => $request->email,
                 "date_of_joining" => Carbon::now(),
-                "gender" => $request->gender,
+                "gender" => "female",
                 "student_id" => $uniqueId,
                 "batch_id" => $request->batch_id,
                 "attended_class" => 0,
@@ -97,8 +103,21 @@ class RegisteredUserController extends Controller
                 "status" => 'learning',
                 "created_at" => Carbon::now(),
                 "enc_pass"=> Crypt::encryptString($password),
-                'password' => Hash::make($password),
+                "password" => Hash::make($password),
             ]);
+
+            if($monthandyear){
+               $monthandyear->increment('students_admitted',1);
+            }
+            else{
+                report::insert([
+                    'month' => $currentMonth,
+                    'year' => $currentYear,
+                    'students_admitted' => 1,
+                ]);
+            }
+
+
             event(new Registered($student));
             return back();
         }

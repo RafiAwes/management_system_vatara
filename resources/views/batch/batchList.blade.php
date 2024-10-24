@@ -13,8 +13,8 @@
                     <th scope="col">Number of Students</th>
                     <th scope="col">Class Time</th>
                     <th scope="col">Classes Done</th>
-                    <th scope="col">Delete</th>
-                    <th scope="col">Edit</th>
+                    {{-- <th scope="col">Delete</th> --}}
+                    {{-- <th scope="col">Edit</th> --}}
                 </tr>
                 </thead>
                 <tbody>
@@ -27,8 +27,8 @@
                         <td>{{$batch->number_of_students}}</td>
                         <td>{{$batch->class_time}}</td>
                         <td>{{$batch->classes_done}}</td>
-                        <td><a href="#" class="btn btn-danger btn-sm rounded"><i class="fas fa-trash"></i></a></td>
-                        <td><a href="#" class="btn btn-warning btn-sm rounded"><i class="fa fa-edit fa-alt"></i></a></td>
+                        {{-- <td><a href="#" class="btn btn-danger btn-sm rounded"><i class="fas fa-trash"></i></a></td> --}}
+                        {{-- <td><a href="#" class="btn btn-warning btn-sm rounded"><i class="fa fa-edit fa-alt"></i></a></td> --}}
                     </tr>
                 @endforeach
                 </tbody>

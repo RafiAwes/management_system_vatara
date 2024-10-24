@@ -55,37 +55,23 @@
 
                                         </div>
                                         <div class="row pt-3">
-
-                                            <div class="col-lg-6">
+                                            {{-- <div class="col-lg-6">
                                                 <label for="gender">Gender</label>
-                                                {{-- <input type="text" class="form-control rounded" id="gender" placeholder="Enter your mobile number"> --}}
                                                 <select class="form-control" name="gender" id="gender" required>
                                                     <option value="">Select One</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                     <option value="custom">Custom</option>
                                                 </select>
-                                            </div>
+                                            </div> --}}
+
                                             <div class="col-lg-4">
                                                 <label for="honorarium">Monthly Honorarium:</label>
                                                 <input type="number" class="form-control rounded" id="honorarium" name="honorarium" oninput="#" required>
                                             </div>
 
                                         </div>
-                                        {{-- <div class="row pt-3">
-                                            <div class="col-lg-4">
-                                                <label for="realFees">Real Fees:</label>
-                                                <input type="number" class="form-control rounded" id="realFees" name="realFees" oninput="updatePayableMoney()" required>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <label for="discount">Discount:</label>
-                                                <input type="number" class="form-control rounded" id="discount" name="discount" oninput="updatePayableMoney()" required>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <label for="payableFees">Payable Fees:</label>
-                                                <input type="number" class="form-control rounded" id="payableFees" name="payableFees" readonly>
-                                            </div>
-                                        </div> --}}
+                                        
                                         <div class="row pt-3">
                                             <div class="col-lg-6">
                                                 <label>Image:</label>

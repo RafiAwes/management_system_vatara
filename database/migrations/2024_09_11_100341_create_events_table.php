@@ -20,9 +20,9 @@ return new class extends Migration
             $table->time('time')->nullable();
             $table->string('days');
             $table->string('supervisor');
-            $table->integer('total_participants');
-            $table->string('volunteers');
-            $table->string('rules');
+            $table->integer('total_participants')->nullable();
+            // $table->string('volunteers')->nullable()->default(null)->change();
+            // $table->string('rules')->nullable()->default(null)->change();
             $table->string('registration_fees');
             $table->timestamps();
         });

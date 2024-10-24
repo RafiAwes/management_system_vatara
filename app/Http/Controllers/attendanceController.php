@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\batch;
 use App\Models\student;
 use App\Models\attendance;
@@ -50,7 +51,7 @@ class attendanceController extends Controller
                                 return back();
                             }else{
                                 // Toastr::success('Attendance', 'Take todays attendance', ["positionClass" => "toast-top-center"]);
-                                return view('Trainer.attendanceList', compact('students','id'));
+                                return view('Trainer.batchAttendance', compact('students','id'));
                             }
 
                         } else {
@@ -98,7 +99,7 @@ class attendanceController extends Controller
         }
 
         $batch->increment('classes_done');
-        return redirect()->route('take.attendance');
+        return redirect()->route('attendance.batchlist');
 
     }
 }
