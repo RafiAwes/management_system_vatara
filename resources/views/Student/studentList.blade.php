@@ -13,6 +13,9 @@
                             <th scope="col">Batch</th>
                             <th scope="col">Email</th>
                             <th scope="col">Password</th>
+
+
+
                             {{-- <th scope="col">Details</th> --}}
                         </tr>
                         </thead>
@@ -24,8 +27,10 @@
                                 <td>{{$student->batch_name}}</td>
                                 <td>{{$student->email}}</td>
                                 <td>{{$student->dec_pass}}</td>
+
                                 {{-- <td><a href="{{url('/student/details')}}/{{$student->id}}" class="btn btn-warning btn-sm rounded"><i class="fa fa-edit fa-alt"></i></a></td> --}}
                             </tr>
+
                         @endforeach
                         </tbody>
                     </table>

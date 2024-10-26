@@ -15,7 +15,7 @@ use App\Http\Controllers\feedbackController;
 use App\Http\Controllers\attendanceController;
 use App\Http\Controllers\StripePaymentController;
 
-Route::get('/',[homeController::class, 'home']);
+Route::get('/',[homeController::class, 'home'])->name('homepage');
 Route::get('/admin', function () {
     return redirect('admin/login');
 });

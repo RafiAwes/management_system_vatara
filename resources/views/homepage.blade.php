@@ -50,7 +50,7 @@ https://templatemo.com/tm-548-training-studio
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="{{ url('/') }}/homepage_assets/index.html" class="logo">Vatara<em> Taekwondo </em></a>
+                        <a href="{{route('homepage')}}" class="logo">Vatara<em> Taekwondo </em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -147,8 +147,8 @@ https://templatemo.com/tm-548-training-studio
 
         <div class="video-overlay header-text">
             <div class="caption">
-                <h6>work harder, get stronger</h6>
-                <h2>easy with our <em>Training</em></h2>
+                <h6 class="">work harder, get stronger</h6>
+                <h2 class="">easy with our <em class="">Training</em></h2>
                 {{-- <div class="main-button scroll-to-section">
                     <a href="#features">Become a member</a>
                 </div> --}}
@@ -201,7 +201,7 @@ https://templatemo.com/tm-548-training-studio
                 <div class="col-lg-12 text-center">
                     <div class="card mt-5">
                         <div class="card-header bg-secondary text-center">
-                            <h2 class="font-bold text-white">Give us yout details</h2>
+                            <h2 class="font-bold text-white">Give us your details</h2>
                         </div>
                         <div class="card-body mt-3">
                             <form action="{{route('send.request')}}" method="post">
@@ -216,6 +216,7 @@ https://templatemo.com/tm-548-training-studio
                                     <label for="phone_number" class="form-label">Phone Number</label>
                                     <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Enter your phone number" required>
                                 </div>
+
 
                                 <!-- Email input -->
                                 <div class="mb-3">
@@ -248,7 +249,7 @@ https://templatemo.com/tm-548-training-studio
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
-                        <h2>Don’t <em>think</em>, begin <em>today</em>!</h2>
+                        <h2 class="">Don’t <em>think</em>, begin <em>today</em>!</h2>
                         {{-- <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p> --}}
                         {{-- <div class="main-button scroll-to-section">
                             <a href="#our-classes">Become a member</a>
@@ -275,46 +276,36 @@ https://templatemo.com/tm-548-training-studio
             <div class="row" id="tabs">
               <div class="col-lg-4">
                 <ul>
-                  <li><a href='#tabs-1'><img src="{{ url('/') }}/homepage_assets/assets/images/tabs-first-icon.png" alt="">First Training Class</a></li>
-                  <li><a href='#tabs-2'><img src="{{ url('/') }}/homepage_assets/assets/images/tabs-first-icon.png" alt="">Second Training Class</a></a></li>
-                  <li><a href='#tabs-3'><img src="{{ url('/') }}/homepage_assets/assets/images/tabs-first-icon.png" alt="">Third Training Class</a></a></li>
-                  <li><a href='#tabs-4'><img src="{{ url('/') }}/homepage_assets/assets/images/tabs-first-icon.png" alt="">Fourth Training Class</a></a></li>
-                  {{-- <div class="main-rounded-button"><a href="#">View All Schedules</a></div> --}}
+                  <li><a href='#tabs-1'><img src="{{ url('/') }}/homepage_assets/assets/images/tabs-first-icon.png" alt="">Training</a></li>
+                  <li><a href='#tabs-2'><img src="{{ url('/') }}/homepage_assets/assets/images/tabs-first-icon.png" alt="">Descipline</a></a></li>
+                  <li><a href='#tabs-3'><img src="{{ url('/') }}/homepage_assets/assets/images/tabs-first-icon.png" alt="">Stretching</a></a></li>
                 </ul>
               </div>
               <div class="col-lg-8">
                 <section class='tabs-content'>
                   <article id='tabs-1'>
                     <img src="{{ url('/') }}/homepage_assets/assets/images/training1.jpeg" alt="First Class">
-                    <h4>First Training Class</h4>
+                    <h4>Training</h4>
                     <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
-                    <div class="main-button">
+                    {{-- <div class="main-button">
                         <a href="#">View Schedule</a>
-                    </div>
+                    </div> --}}
                   </article>
                   <article id='tabs-2'>
                     <img src="{{ url('/') }}/homepage_assets/assets/images/training2.jpeg" alt="Second Training">
-                    <h4>Second Training Class</h4>
+                    <h4>Descipline</h4>
                     <p>Integer dapibus, est vel dapibus mattis, sem mauris luctus leo, ac pulvinar quam tortor a velit. Praesent ultrices erat ante, in ultricies augue ultricies faucibus. Nam tellus nibh, ullamcorper at mattis non, rhoncus sed massa. Cras quis pulvinar eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <div class="main-button">
+                    {{-- <div class="main-button">
                         <a href="#">View Schedule</a>
-                    </div>
+                    </div> --}}
                   </article>
                   <article id='tabs-3'>
                     <img src="{{ url('/') }}/homepage_assets/assets/images/training3.jpeg" alt="Third Class">
-                    <h4>Third Training Class</h4>
+                    <h4>Stretching</h4>
                     <p>Fusce laoreet malesuada rhoncus. Donec ultricies diam tortor, id auctor neque posuere sit amet. Aliquam pharetra, augue vel cursus porta, nisi tortor vulputate sapien, id scelerisque felis magna id felis. Proin neque metus, pellentesque pharetra semper vel, accumsan a neque.</p>
-                    <div class="main-button">
+                    {{-- <div class="main-button">
                         <a href="#">View Schedule</a>
-                    </div>
-                  </article>
-                  <article id='tabs-4'>
-                    <img src="{{ url('/') }}/homepage_assets/assets/images/training-image-04.jpg" alt="Fourth Training">
-                    <h4>Fourth Training Class</h4>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ultrices elementum odio ac tempus. Etiam eleifend orci lectus, eget venenatis ipsum commodo et.</p>
-                    <div class="main-button">
-                        <a href="#">View Schedule</a>
-                    </div>
+                    </div> --}}
                   </article>
                 </section>
               </div>
@@ -322,71 +313,6 @@ https://templatemo.com/tm-548-training-studio
         </div>
     </section>
     <!-- ***** Our Classes End ***** -->
-
-    {{-- <section class="section" id="schedule">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading dark-bg">
-                        <h2>Classes <em>Schedule</em></h2>
-                        <img src="{{ url('/') }}/homepage_assets/assets/images/line-dec.png" alt="">
-                        <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="filters">
-                        <ul class="schedule-filter">
-                            <li class="active" data-tsfilter="monday">Monday</li>
-                            <li data-tsfilter="tuesday">Tuesday</li>
-                            <li data-tsfilter="wednesday">Wednesday</li>
-                            <li data-tsfilter="thursday">Thursday</li>
-                            <li data-tsfilter="friday">Friday</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="schedule-table filtering">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="day-time">Fitness Class</td>
-                                    <td class="monday ts-item show" data-tsmeta="monday">10:00AM - 11:30AM</td>
-                                    <td class="tuesday ts-item" data-tsmeta="tuesday">2:00PM - 3:30PM</td>
-                                    <td>William G. Stewart</td>
-                                </tr>
-                                <tr>
-                                    <td class="day-time">Muscle Training</td>
-                                    <td class="friday ts-item" data-tsmeta="friday">10:00AM - 11:30AM</td>
-                                    <td class="thursday friday ts-item" data-tsmeta="thursday" data-tsmeta="friday">2:00PM - 3:30PM</td>
-                                    <td>Paul D. Newman</td>
-                                </tr>
-                                <tr>
-                                    <td class="day-time">Body Building</td>
-                                    <td class="tuesday ts-item" data-tsmeta="tuesday">10:00AM - 11:30AM</td>
-                                    <td class="monday ts-item show" data-tsmeta="monday">2:00PM - 3:30PM</td>
-                                    <td>Boyd C. Harris</td>
-                                </tr>
-                                <tr>
-                                    <td class="day-time">Yoga Training Class</td>
-                                    <td class="wednesday ts-item" data-tsmeta="wednesday">10:00AM - 11:30AM</td>
-                                    <td class="friday ts-item" data-tsmeta="friday">2:00PM - 3:30PM</td>
-                                    <td>Hector T. Daigle</td>
-                                </tr>
-                                <tr>
-                                    <td class="day-time">Advanced Training</td>
-                                    <td class="thursday ts-item" data-tsmeta="thursday">10:00AM - 11:30AM</td>
-                                    <td class="wednesday ts-item" data-tsmeta="wednesday">2:00PM - 3:30PM</td>
-                                    <td>Bret D. Bowers</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
 
     <!-- ***** Testimonials Starts ***** -->
     <section class="section" id="trainers">
