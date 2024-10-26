@@ -143,7 +143,7 @@
                     <!-- topbar -->
                     <div class="topbar">
                         {{-- to change the color of top navbar use the class  --}}
-                        <nav class="navbar navbar-expand-lg " style="background: rebeccapurple">
+                        <nav class="navbar navbar-expand-lg">
                             <div class="full">
                                 <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                                 <div class="logo_section">

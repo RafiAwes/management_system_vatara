@@ -121,9 +121,9 @@ https://templatemo.com/tm-548-training-studio
                                     </a>
                                 </li>
                             @endauth
-                            <li class="scroll-to-section text_white"><a href="#top" class="active text-white">Home</a></li>
-                            {{-- <li class="scroll-to-section"><a href="#features">About</a></li>
-                            <li class="scroll-to-section"><a href="#our-classes">Classes</a></li> --}}
+                            <li class="scroll-to-section"><a href="#top">Home</a></li>
+                            {{-- <li class="scroll-to-section"><a href="#top">Home</a></li> --}}
+                            {{-- <li class="scroll-to-section"><a href="#our-classes">Classes</a></li> --}}
                             {{-- <li class="scroll-to-section"><a href="#schedule">Schedules</a></li> --}}
                             {{-- <li class="scroll-to-section"><a href="#contact-us">Contact</a></li>
                             <li class="main-button"><a href="#">Sign Up</a></li> --}}
